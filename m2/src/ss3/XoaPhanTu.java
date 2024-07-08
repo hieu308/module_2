@@ -2,7 +2,7 @@ package ss3;
 
 import java.util.Scanner;
 
-public class Bai1 {
+public class XoaPhanTu {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};

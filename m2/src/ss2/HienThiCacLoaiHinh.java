@@ -2,7 +2,7 @@ package ss2;
 
 import java.util.Scanner;
 
-public class Bai1 {
+public class HienThiCacLoaiHinh {
     public static void main(String[] args) {
         int choice = -1;
         Scanner input = new Scanner(System.in);

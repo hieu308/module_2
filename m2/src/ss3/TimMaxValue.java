@@ -1,6 +1,6 @@
 package ss3;
 import java.util.Scanner;
-public class Bai6 {
+public class TimMaxValue {
         public static void main(String[] args) {
             Scanner sc = new Scanner(System.in);
             System.out.println("Nhập số hàng của ma trận:");

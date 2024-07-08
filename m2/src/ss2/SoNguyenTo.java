@@ -2,13 +2,16 @@ package ss2;
 
 import java.util.Scanner;
 
-public class Bai3 {
+public class SoNguyenTo {
     public static void main(String[] args) {
-
+        Scanner sc = new Scanner(System.in);
+        int number;
+        int counter = 1;
         int N = 2;
         boolean isPrime = true;
-        System.out.println("Các số nguyên tố nhỏ hơn 100 là:");
-        while (N <= 100) {
+        System.out.println("Nhập số nguyên tố cần in ra:");
+        number = sc.nextInt();
+        while (counter <= number) {
             for (int i = 2; i <= Math.sqrt(N); i++) {
                 if (N % i == 0) {
                     isPrime = false;
@@ -19,12 +22,10 @@ public class Bai3 {
                 }
             }
             if (isPrime) {
-
+                counter++;
                 System.out.println(N);
             }
             N++;
         }
     }
-
 }
-

@@ -1,6 +1,6 @@
 package ss3;
 
-public class Bai4 {
+public class GopMang {
 
     public static void main(String[] args) {
 

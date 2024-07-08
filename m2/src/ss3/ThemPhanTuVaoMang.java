@@ -2,7 +2,7 @@ package ss3;
 
 import java.util.Scanner;
 
-public class Bai2 {
+public class ThemPhanTuVaoMang {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
