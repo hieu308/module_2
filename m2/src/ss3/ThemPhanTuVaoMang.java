@@ -1,5 +1,6 @@
 package ss3;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ThemPhanTuVaoMang {
@@ -24,9 +25,7 @@ public class ThemPhanTuVaoMang {
                 newArray[i] = array[i - 1];
             }
 
-            for (int i = 0; i < array.length; i++) {
-                System.out.print(newArray[i] + " ");
-            }
+            System.out.println(Arrays.toString(newArray));
         }
 
     }
