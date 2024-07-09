@@ -6,17 +6,22 @@ import java.util.Scanner;
 public class Test {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhập số hàng của ma trận:");
-        int rows = sc.nextInt();
-        System.out.println("Nhập số cột của ma trận:");
-        int cols = sc.nextInt();
-        int[][] matrix = new int[rows][cols];
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                System.out.print("matrix[" + i + "][" + j + "] = ");
-                matrix[i][j] = sc.nextInt();
+        System.out.println("nhập chuỗi");
+        String str = sc.nextLine();
+        System.out.println("nhập ký tự");
+        char character = sc.next().charAt(0);
+        System.out.println( display(str, character));
+    }
+
+    public static int display(String str, char character) {
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == character) {
+                count++;
             }
         }
-        System.out.println(Arrays.deepToString(matrix));
+        return count;
+
+
     }
 }

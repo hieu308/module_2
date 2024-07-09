@@ -1,4 +1,4 @@
-package ss4.PhuongTrinhBac2;
+package ss4.phuong_trinh_bac_2;
 
 public class QuadraticEquation {
     private double a, b, c;

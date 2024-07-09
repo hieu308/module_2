@@ -1,5 +1,6 @@
 package ss3;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class TongSoTrongMotCot {
@@ -16,6 +17,7 @@ public class TongSoTrongMotCot {
                 matrix[i][j] = sc.nextDouble();
             }
         }
+        System.out.println(Arrays.deepToString(matrix));
         System.out.println("Nhập cột cần tính tổng");
         int colum = sc.nextInt();
         double sum = 0;
