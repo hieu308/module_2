@@ -2,7 +2,7 @@ package ss4.phuong_trinh_bac_2;
 
 import java.util.Scanner;
 
-public class Q {
+public class Equation {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("nhập a");

@@ -1,6 +1,6 @@
 package ss4.stop_swatch;
 
-public class S {
+public class Watch {
     public static void main(String[] args) {
         int[] array = new int[100000];
         Swatch stopwatch = new Swatch();
