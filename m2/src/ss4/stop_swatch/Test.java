@@ -1,11 +1,9 @@
 package ss4.stop_swatch;
 
-import java.util.Arrays;
-
-public class Watch {
+public class Test {
     public static void main(String[] args) {
         int[] array = new int[100000];
-        Swatch stopwatch = new Swatch();
+        StopWatch stopwatch = new StopWatch();
         stopwatch.start();
         System.out.println(stopwatch.getStarTime());
         int min = array[0];

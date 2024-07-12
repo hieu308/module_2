@@ -1,6 +1,6 @@
 package ss4.stop_swatch;
 
-public class Swatch {
+public class StopWatch {
     private double starTime;
     private double endTime;
 

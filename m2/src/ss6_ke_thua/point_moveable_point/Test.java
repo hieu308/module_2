@@ -1,6 +1,6 @@
 package ss6_ke_thua.point_moveable_point;
 
-public class Check {
+public class Test {
     public static void main(String[] args) {
         Point p1 = new Point(1, 2);
         p1.getXY();

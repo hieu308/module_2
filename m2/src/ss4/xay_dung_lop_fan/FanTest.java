@@ -1,6 +1,6 @@
 package ss4.xay_dung_lop_fan;
 
-public class F {
+public class FanTest {
     public static void main(String[] args) {
 
             Fan fan1 = new Fan();

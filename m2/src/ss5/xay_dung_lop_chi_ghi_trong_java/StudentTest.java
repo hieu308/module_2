@@ -1,6 +1,6 @@
 package ss5.xay_dung_lop_chi_ghi_trong_java;
 
-public class St {
+public class StudentTest {
     public static void main(String[] args) {
         Student sv = new Student();
         sv.setName("goku");
