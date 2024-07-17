@@ -1,8 +1,10 @@
-package bai_tap;
+package bai_tap.model;
+
+import bai_tap.service.student_service.IStudentService;
 
 import java.time.LocalDate;
 
-public class Student extends Person implements IStudent {
+public class Student extends Person  {
     private String nameClass;
 
     public String getNameClass() {
@@ -22,10 +24,8 @@ public class Student extends Person implements IStudent {
         this.nameClass = nameClass;
     }
 
-    @Override
-    public void learn(String objectName) {
-        System.out.println(" Học môn " + objectName);
-    }
+
+
 
     @Override
     public void say() {

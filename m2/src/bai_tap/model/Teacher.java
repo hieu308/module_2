@@ -1,9 +1,8 @@
-package bai_tap;
+package bai_tap.model;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Teacher extends Person implements ITeacher {
+public class Teacher extends Person  {
     private String level;
 
     public Teacher() {
@@ -14,10 +13,7 @@ public class Teacher extends Person implements ITeacher {
         this.level = level;
     }
 
-    @Override
-    public void teachFor(String objectName) {
-        System.out.println("Thầy dạy môn " + objectName);
-    }
+
 
     @Override
     public void say() {

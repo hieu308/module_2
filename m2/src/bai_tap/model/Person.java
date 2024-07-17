@@ -1,4 +1,4 @@
-package bai_tap;
+package bai_tap.model;
 
 import java.time.LocalDate;
 
