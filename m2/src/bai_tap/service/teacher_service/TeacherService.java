@@ -6,11 +6,13 @@ import bai_tap.repository.student_repository.StudentRepository;
 import bai_tap.repository.teacher_repository.ITeacherRepository;
 import bai_tap.repository.teacher_repository.TeacherRepository;
 
+import java.util.List;
+
 public class TeacherService implements ITeacherService {
     ITeacherRepository iTeacherRepository = new TeacherRepository();
 
     @Override
-    public Teacher[] findTeachers() {
+    public List<Teacher> findTeachers() {
         return iTeacherRepository.findTeacher();
     }
 }

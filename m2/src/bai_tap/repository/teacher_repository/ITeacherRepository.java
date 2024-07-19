@@ -2,6 +2,8 @@ package bai_tap.repository.teacher_repository;
 
 import bai_tap.model.Teacher;
 
+import java.util.List;
+
 public interface ITeacherRepository {
-    Teacher[] findTeacher();
+    List<Teacher> findTeacher();
 }

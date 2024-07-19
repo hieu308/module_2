@@ -4,6 +4,7 @@ import bai_tap.model.Teacher;
 import bai_tap.service.teacher_service.ITeacherService;
 import bai_tap.service.teacher_service.TeacherService;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class TeacherController {
@@ -11,7 +12,7 @@ public class TeacherController {
     ITeacherService iTeacherService = new TeacherService();
     Scanner scanner = new Scanner(System.in);
     public void displayTeacher(){
-        Teacher[] teacher = iTeacherService.findTeachers();
+        List<Teacher> teacher = iTeacherService.findTeachers();
         for (Teacher t : teacher) {
             if (t != null) {
                 System.out.println(t);

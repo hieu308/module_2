@@ -2,6 +2,8 @@ package bai_tap.service.teacher_service;
 
 import bai_tap.model.Teacher;
 
+import java.util.List;
+
 public interface ITeacherService {
-    Teacher[] findTeachers();
+    List<Teacher> findTeachers();
 }

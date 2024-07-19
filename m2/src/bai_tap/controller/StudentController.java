@@ -4,19 +4,66 @@ import bai_tap.model.Student;
 import bai_tap.service.student_service.IStudentService;
 import bai_tap.service.student_service.StudentService;
 
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
 
 public class StudentController {
     IStudentService iStudentService = new StudentService();
     Scanner sc = new Scanner(System.in);
-
+    List<Student> students = iStudentService.findAll();
     public void displayStudent() {
-        Student[] students = iStudentService.findAll();
+
         for (Student student : students) {
             if (student != null) {
                 System.out.println(student);
             }
 
+        }
+    }
+    public void editStudent() {
+        System.out.println("Nhập index");
+        int index = Integer.parseInt(sc.nextLine());
+        System.out.println("Nhập tên \n");
+        String name = sc.nextLine();
+        System.out.println("Nhập ngày sinh \n");
+        LocalDate birthday = LocalDate.parse(sc.nextLine());
+        System.out.println("Nhập email \n");
+        String email = sc.nextLine();
+        System.out.println("Nhập Số điện thoại \n");
+        String number = sc.nextLine();
+        System.out.println("Nhập tên lớp \n");
+        String className = sc.nextLine();
+        Student student = new Student(name, birthday, email, number, className);
+        students.set(index,student);
+        System.out.println("Sửa thành công");
+    }
+
+    public void addStudent() {
+
+        System.out.println("Nhập tên \n");
+        String name = sc.nextLine();
+        System.out.println("Nhập ngày sinh \n");
+        LocalDate birthday = LocalDate.parse(sc.nextLine());
+        System.out.println("Nhập email \n");
+        String email = sc.nextLine();
+        System.out.println("Nhập Số điện thoại \n");
+        String number = sc.nextLine();
+        System.out.println("Nhập tên lớp \n");
+        String className = sc.nextLine();
+        Student student = new Student(name, birthday, email, number, className);
+        iStudentService.addStudent(student);
+
+    }
+
+    public void deleteStudent() {
+        System.out.println("Mời nhập ten muốn xoá \n");
+        int index =Integer.parseInt(sc.nextLine()) ;
+        Student student = iStudentService.removeStudent(index);
+        if (student != null) {
+            System.out.println("bạn đã xoá thành công");
+        } else {
+            System.out.println("Khong tồn tại");
         }
     }
 
@@ -36,7 +83,14 @@ public class StudentController {
                     displayStudent();
                     break;
                 case 2:
-                    System.out.println("giảng viên");
+                    addStudent();
+                    break;
+
+                case 3:
+                    deleteStudent();
+                    break;
+                case 4:
+                    editStudent();
                     break;
                 case 5:
                     return;
@@ -44,5 +98,6 @@ public class StudentController {
             }
         } while (true);
     }
+
 
 }
