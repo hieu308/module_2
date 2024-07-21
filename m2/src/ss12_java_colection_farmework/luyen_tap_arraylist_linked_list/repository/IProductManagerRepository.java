@@ -10,8 +10,10 @@ public interface IProductManagerRepository {
 
     void addProduct(ProductManager productManager);
 
-    void editStudent(int index, ProductManager product);
+    void editProduct(int index, ProductManager product);
 
+    public void sortProductsAscendingByPrice();
+    public void sortProductsDescendingByPrice();
     //
     void removeProduct(int id);
 

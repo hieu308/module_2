@@ -34,8 +34,8 @@ public class ProductManagerService implements IProductManagerService {
     }
 
     @Override
-    public void editStudent(int index, ProductManager product) {
-        iProductManagerRepository.editStudent(index, product);
+    public void editProduct(int index, ProductManager product) {
+        iProductManagerRepository.editProduct(index, product);
     }
 
     @Override
@@ -43,13 +43,32 @@ public class ProductManagerService implements IProductManagerService {
         return iProductManagerRepository.getIndex(product);
     }
 
+//    @Override
+//    public void sortProductsDescendingByPrice() {
+//        List<ProductManager> products = iProductManagerRepository.findAll();
+//        products.sort((p1, p2) -> Integer.compare(p2.getProduct_price(), p1.getProduct_price()));
+//    }
+
+
+    @Override
+    public void sortProductsAscendingByPrice() {
+        iProductManagerRepository.sortProductsAscendingByPrice();
+    }
+
+    @Override
+    public void sortProductsDescendingByPrice() {
+        iProductManagerRepository.sortProductsDescendingByPrice();
+    }
+
     @Override
     public ProductManager checkName(String name) {
         return iProductManagerRepository.checkName(name);
     }
 
-    @Override
-    public void sortProductsByPrice(boolean ascending) {
-
-    }
+//    @Override
+//    public void sortProductsAscendingByPrice() {
+//        List<ProductManager> products = iProductManagerRepository.findAll();
+//        products.sort((p1, p2) -> Integer.compare(p1.getProduct_price(), p2.getProduct_price()));
+//    }
 }
+

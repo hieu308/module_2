@@ -8,9 +8,12 @@ public interface IProductManagerService {
     List<ProductManager> findAll();
     void addProduct(ProductManager productManager);
     void removeProduct(int id );
-    void editStudent(int index, ProductManager product);
+    void editProduct(int index, ProductManager product);
 
-    //
+
+    public void sortProductsAscendingByPrice() ;
+
+    public void sortProductsDescendingByPrice();
 
 
     ProductManager checkId(int id);

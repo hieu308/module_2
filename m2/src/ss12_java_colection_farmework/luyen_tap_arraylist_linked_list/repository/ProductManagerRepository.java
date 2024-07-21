@@ -3,8 +3,6 @@ package ss12_java_colection_farmework.luyen_tap_arraylist_linked_list.repository
 import ss12_java_colection_farmework.luyen_tap_arraylist_linked_list.model.ProductManager;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class ProductManagerRepository implements IProductManagerRepository {
@@ -18,6 +16,17 @@ public class ProductManagerRepository implements IProductManagerRepository {
         list.add(car);
     }
 
+    @Override
+    public void sortProductsAscendingByPrice() {
+        list.sort((p1, p2) -> Integer.compare(p1.getProduct_price(), p2.getProduct_price()));
+
+    }
+
+    @Override
+    public void sortProductsDescendingByPrice() {
+
+        list.sort((p1, p2) -> Integer.compare(p2.getProduct_price(), p1.getProduct_price()));
+    }
 
     @Override
     public List<ProductManager> findAll() {
@@ -44,13 +53,14 @@ public class ProductManagerRepository implements IProductManagerRepository {
         return null;
     }
 
+
     @Override
     public int getIndex(ProductManager product) {
         return list.indexOf(product);
     }
 
     @Override
-    public void editStudent(int index, ProductManager product) {
+    public void editProduct(int index, ProductManager product) {
         list.set(index, product);
     }
 

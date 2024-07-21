@@ -40,7 +40,7 @@ public class Products {
 
     @Override
     public String toString() {
-        return "Sản phẩm:" +
+        return
                 "Mã sản phâm: " + product_id +
                 ", Tên: '" + product_name + '\'' +
                 ", Giá: " + product_price + "$" ;
