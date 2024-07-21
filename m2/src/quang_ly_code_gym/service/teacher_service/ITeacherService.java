@@ -1,6 +1,6 @@
-package bai_tap.service.teacher_service;
+package quang_ly_code_gym.service.teacher_service;
 
-import bai_tap.model.Teacher;
+import quang_ly_code_gym.model.Teacher;
 
 import java.util.List;
 

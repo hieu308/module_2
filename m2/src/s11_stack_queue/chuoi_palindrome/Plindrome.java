@@ -13,19 +13,19 @@ public class Plindrome {
         Stack<String> stack = new Stack<>();
         for (int i = 0; i < string.length(); i++) {
             char ch = string.charAt(i);
-            queue.add(ch+"");
-            stack.add(ch+"");
+            queue.add(ch + "");
+            stack.add(ch + "");
         }
         boolean flag = true;
-        for (int i = 0; i < string.length(); i++) {
+        while (!queue.isEmpty()) {
             if (!queue.remove().equals(stack.pop())) {
                 flag = false;
                 break;
             }
         }
-        if(flag){
+        if (flag) {
             System.out.println("là chuỗi  Plindrome");
-        }else {
+        } else {
             System.out.println("không phải là chuỗi Plindrome");
         }
     }

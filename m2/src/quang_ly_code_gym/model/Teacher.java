@@ -1,4 +1,4 @@
-package bai_tap.model;
+package quang_ly_code_gym.model;
 
 import java.time.LocalDate;
 
@@ -8,8 +8,8 @@ public class Teacher extends Person  {
     public Teacher() {
     }
 
-    public Teacher(String name, LocalDate birthDay, String email, String phone, String level) {
-        super(name, birthDay, email, phone);
+    public Teacher(int id,String name, LocalDate birthDay, String email, String phone, String level) {
+        super( id,name, birthDay, email, phone);
         this.level = level;
     }
 

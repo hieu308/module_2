@@ -1,21 +1,31 @@
-package bai_tap.model;
+package quang_ly_code_gym.model;
 
 import java.time.LocalDate;
 
 public abstract class Person {
+    private int id;
     private String name;
     private LocalDate birthDay;
     private String email;
     private String phone;
 
+
     public Person() {
     }
 
-    public Person(String name, LocalDate birthDay, String email, String phone) {
+    public Person(int id,String name, LocalDate birthDay, String email, String phone) {
+        this.id = id;
         this.name = name;
         this.birthDay = birthDay;
         this.email = email;
         this.phone = phone;
+
+    }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -54,6 +64,7 @@ public abstract class Person {
     @Override
     public String toString() {
         return
+                "  id : '" + id + '\'' +
                 "  Name : '" + name + '\'' +
                 ", birthDay : " + birthDay +
                 ", email : '" + email + '\'' +

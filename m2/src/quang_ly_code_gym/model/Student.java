@@ -1,6 +1,4 @@
-package bai_tap.model;
-
-import bai_tap.service.student_service.IStudentService;
+package quang_ly_code_gym.model;
 
 import java.time.LocalDate;
 
@@ -15,8 +13,8 @@ public class Student extends Person  {
 
     }
 
-    public Student(String name, LocalDate birthDay, String email, String phone, String nameClass) {
-        super(name, birthDay, email, phone);
+    public Student(int id,String name, LocalDate birthDay, String email, String phone, String nameClass) {
+        super(id,name, birthDay, email, phone);
         this.nameClass = nameClass;
     }
 

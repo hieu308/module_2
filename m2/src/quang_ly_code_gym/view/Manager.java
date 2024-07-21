@@ -1,7 +1,7 @@
-package bai_tap.view;
+package quang_ly_code_gym.view;
 
-import bai_tap.controller.StudentController;
-import bai_tap.controller.TeacherController;
+import quang_ly_code_gym.controller.StudentController;
+import quang_ly_code_gym.controller.TeacherController;
 
 import java.util.Scanner;
 

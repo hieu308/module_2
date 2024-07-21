@@ -1,8 +1,8 @@
-package bai_tap.controller;
+package quang_ly_code_gym.controller;
 
-import bai_tap.model.Student;
-import bai_tap.service.student_service.IStudentService;
-import bai_tap.service.student_service.StudentService;
+import quang_ly_code_gym.model.Student;
+import quang_ly_code_gym.service.student_service.IStudentService;
+import quang_ly_code_gym.service.student_service.StudentService;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -21,26 +21,11 @@ public class StudentController {
 
         }
     }
-    public void editStudent() {
-        System.out.println("Nhập index");
-        int index = Integer.parseInt(sc.nextLine());
-        System.out.println("Nhập tên \n");
-        String name = sc.nextLine();
-        System.out.println("Nhập ngày sinh \n");
-        LocalDate birthday = LocalDate.parse(sc.nextLine());
-        System.out.println("Nhập email \n");
-        String email = sc.nextLine();
-        System.out.println("Nhập Số điện thoại \n");
-        String number = sc.nextLine();
-        System.out.println("Nhập tên lớp \n");
-        String className = sc.nextLine();
-        Student student = new Student(name, birthday, email, number, className);
-        students.set(index,student);
-        System.out.println("Sửa thành công");
-    }
+
 
     public void addStudent() {
-
+        System.out.println("Nhập id");
+        int id = Integer.parseInt(sc.nextLine());
         System.out.println("Nhập tên \n");
         String name = sc.nextLine();
         System.out.println("Nhập ngày sinh \n");
@@ -51,20 +36,48 @@ public class StudentController {
         String number = sc.nextLine();
         System.out.println("Nhập tên lớp \n");
         String className = sc.nextLine();
-        Student student = new Student(name, birthday, email, number, className);
+        Student student = new Student(id, name, birthday, email, number, className);
         iStudentService.addStudent(student);
 
     }
 
-    public void deleteStudent() {
-        System.out.println("Mời nhập ten muốn xoá \n");
-        int index =Integer.parseInt(sc.nextLine()) ;
-        Student student = iStudentService.removeStudent(index);
-        if (student != null) {
-            System.out.println("bạn đã xoá thành công");
-        } else {
-            System.out.println("Khong tồn tại");
+    public void updateStudent() {
+        System.out.println("Nhập id");
+        int id = Integer.parseInt(sc.nextLine());
+        Student st1 = iStudentService.checkId(id);
+        int index = iStudentService.getIndex(st1);
+        if (st1 != null) {
+            System.out.println("Nhập thông tin chỉnh xửa");
+            System.out.println("Nhập id :");
+            int idUpdate = Integer.parseInt(sc.nextLine());
+            System.out.println("Nhập tên :");
+            String nameUpdate = sc.nextLine();
+            System.out.println("Nhap ngày sinh");
+            LocalDate birthdayUpdate = LocalDate.parse(sc.nextLine());
+            System.out.println("Nhập email");
+            String emailUpdate = sc.nextLine();
+            System.out.println("Nhập số điện thoại");
+            String numberUpdate = sc.nextLine();
+            System.out.println("Nhap tên lơp");
+            String classUpdate = sc.nextLine();
+            Student st2 = new Student(idUpdate, nameUpdate, birthdayUpdate, emailUpdate, numberUpdate, classUpdate);
+
+            iStudentService.editStudent(index, st2);
         }
+
+    }
+
+    public void deleteStudent() {
+        System.out.println("Nhập id học sinh muốn xoá \n");
+        int id = Integer.parseInt(sc.nextLine());
+        Student st1 = iStudentService.checkId(id);
+        if (st1 != null) {
+            int index = iStudentService.getIndex(st1);
+            iStudentService.removeStudent(index);
+            System.out.println("xoá thành công");
+        }
+
+
     }
 
     public void displayStudentDetails() {
@@ -90,8 +103,9 @@ public class StudentController {
                     deleteStudent();
                     break;
                 case 4:
-                    editStudent();
+                    updateStudent();
                     break;
+
                 case 5:
                     return;
 

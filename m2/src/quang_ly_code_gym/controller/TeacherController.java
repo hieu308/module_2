@@ -1,8 +1,8 @@
-package bai_tap.controller;
+package quang_ly_code_gym.controller;
 
-import bai_tap.model.Teacher;
-import bai_tap.service.teacher_service.ITeacherService;
-import bai_tap.service.teacher_service.TeacherService;
+import quang_ly_code_gym.model.Teacher;
+import quang_ly_code_gym.service.teacher_service.ITeacherService;
+import quang_ly_code_gym.service.teacher_service.TeacherService;
 
 import java.util.List;
 import java.util.Scanner;

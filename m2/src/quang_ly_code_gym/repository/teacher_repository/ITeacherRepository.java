@@ -1,6 +1,6 @@
-package bai_tap.repository.teacher_repository;
+package quang_ly_code_gym.repository.teacher_repository;
 
-import bai_tap.model.Teacher;
+import quang_ly_code_gym.model.Teacher;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package bai_tap.repository.teacher_repository;
+package quang_ly_code_gym.repository.teacher_repository;
 
-import bai_tap.model.Teacher;
+import quang_ly_code_gym.model.Teacher;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -11,9 +11,9 @@ public class TeacherRepository implements ITeacherRepository {
 
     static {
         list = new ArrayList<>();
-        Teacher t1 = new Teacher("Naruto", LocalDate.parse("1993-10-02"), "nuruto@goole.com",
+        Teacher t1 = new Teacher(1322,"Naruto", LocalDate.parse("1993-10-02"), "nuruto@goole.com",
                 "0900398234", "Giảng viên It");
-        Teacher t2 = new Teacher("SonGoku", LocalDate.parse("1999-07-07"), "songoku@goole.com",
+        Teacher t2 = new Teacher(2342,"SonGoku", LocalDate.parse("1999-07-07"), "songoku@goole.com",
                 "093374723", "Giảng viên game");
         list.add(t1) ;
         list.add (t2);
