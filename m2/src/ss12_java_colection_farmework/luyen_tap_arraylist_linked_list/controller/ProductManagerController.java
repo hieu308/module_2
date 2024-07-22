@@ -38,12 +38,7 @@ public class ProductManagerController {
     public void deleteProductManager() {
         System.out.println("Nhập id sản phẩm muốn xoá");
         int id = sc.nextInt();
-        ProductManager product = iProductManagerService.checkId(id);
-        if (product != null) {
-            int index = products.indexOf(product);
-            iProductManagerService.removeProduct(index);
-            System.out.println("xoá thành công");
-        }
+      iProductManagerService.removeProduct(id);
 
     }
 

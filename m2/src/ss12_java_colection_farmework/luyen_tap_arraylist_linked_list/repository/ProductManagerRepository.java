@@ -66,7 +66,7 @@ public class ProductManagerRepository implements IProductManagerRepository {
 
     @Override
     public void removeProduct(int id) {
-        list.remove(id);
+        list.remove(checkId(id));
     }
 
     @Override

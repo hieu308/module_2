@@ -30,8 +30,8 @@ public class StudentRepository implements IStudentRepository {
 
 
     @Override
-    public void removeStudent(int index ) {
-        list.remove(index);
+    public void removeStudent(int id ) {
+        list.remove(checkId(id));
 
     }
 
@@ -58,6 +58,7 @@ public class StudentRepository implements IStudentRepository {
 
     @Override
     public void editStudent(int index, Student student) {
+
         list.set(index, student);
     }
 }

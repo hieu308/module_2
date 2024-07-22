@@ -23,7 +23,9 @@ public class Student extends Person  {
     }
 
 
-
+    public Student(String nameClass) {
+        this.nameClass = nameClass;
+    }
 
     @Override
     public void say() {
