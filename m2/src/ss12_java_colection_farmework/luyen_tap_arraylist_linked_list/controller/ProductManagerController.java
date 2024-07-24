@@ -25,6 +25,7 @@ public class ProductManagerController {
     public void addProductManager() {
         System.out.println("Nhập id sản phẩm");
         int id = sc.nextInt();
+
         System.out.println("Nhập tên sản phâm");
         String name = sc.next();
         System.out.println("Nhập giá sản phẩm");
@@ -63,6 +64,7 @@ public class ProductManagerController {
 
         }
     }
+
 
     public void sortProductAscending() {
         iProductManagerService.sortProductsAscendingByPrice();

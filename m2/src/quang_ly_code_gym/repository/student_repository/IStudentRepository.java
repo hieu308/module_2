@@ -13,7 +13,9 @@ public interface IStudentRepository {
 
     Student checkId(int id);
 
-    int getIndex(Student student);
+
 
   void editStudent(int index, Student student);
+    public void sortStudentsAscendingByName();
+    public void sortStudentsAscendingById();
 }

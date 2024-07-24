@@ -11,10 +11,13 @@ public class StudentService implements IStudentService {
 
     @Override
     public List<Student> findAll() {
+
         return iStudentRepository.findAll();
     }
+
     @Override
     public void addStudent(Student student) {
+
         iStudentRepository.addStudent(student);
     }
 
@@ -24,21 +27,27 @@ public class StudentService implements IStudentService {
 
     @Override
     public Student checkId(int id) {
-       return iStudentRepository.checkId(id);
-    }
-
-    @Override
-    public int getIndex(Student student) {
-        return iStudentRepository.getIndex(student);
+        return iStudentRepository.checkId(id);
     }
 
     @Override
     public void editStudent(int index, Student student) {
-        iStudentRepository.editStudent(index,student);
+        iStudentRepository.editStudent(index, student);
     }
 
     @Override
     public void removeStudent(int index) {
         iStudentRepository.removeStudent(index);
+    }
+
+
+    @Override
+    public void sortStudentsAscendingByName() {
+        iStudentRepository.sortStudentsAscendingByName();
+    }
+
+    @Override
+    public void sortStudentsAscendingById() {
+        iStudentRepository.sortStudentsAscendingById();
     }
 }

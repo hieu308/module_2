@@ -27,6 +27,11 @@ public class StudentController {
     public void addStudent() {
         System.out.println("Nhập id");
         int id = Integer.parseInt(sc.nextLine());
+        while (iStudentService.checkId(id) != null) {
+            System.out.println("id đã tồn tại.Mời nhập lại id");
+            id = Integer.parseInt(sc.nextLine());
+        }
+
         System.out.println("Nhập tên \n");
         String name = sc.nextLine();
         System.out.println("Nhập ngày sinh \n");
@@ -39,97 +44,97 @@ public class StudentController {
         String className = sc.nextLine();
         Student student = new Student(id, name, birthday, email, number, className);
         iStudentService.addStudent(student);
+        System.out.println("Thêm mới học viên thành công");
+    }
 
+    public void searchName() {
+        System.out.println("Nhập tên cần tìm");
+        String name = sc.nextLine();
+        boolean search = false;
+        for (Student student : students) {
+            if (student.getName().toLowerCase().contains(name.toLowerCase())) {
+                System.out.println(student);
+                search = true;
+            }
+        }
+        if(!search){
+            System.out.println("Tên không tồn tại");
+            displayStudentDetails();
+        }
     }
 
     public void updateStudent() {
         System.out.println("Nhập id");
         int id = Integer.parseInt(sc.nextLine());
         Student st1 = iStudentService.checkId(id);
-        int index = iStudentService.getIndex(st1);
+        int index = iStudentService.findAll().indexOf(st1);
         if (st1 != null) {
 
-        }
-//            System.out.println("Nhập thông tin chỉnh xửa");
-//            System.out.println("Nhập id :");
-//            int idUpdate = Integer.parseInt(sc.nextLine());
-//            System.out.println("Nhập tên :");
-//            String nameUpdate = sc.nextLine();
-//            System.out.println("Nhap ngày sinh");
-//            LocalDate birthdayUpdate = LocalDate.parse(sc.nextLine());
-//            System.out.println("Nhập email");
-//            String emailUpdate = sc.nextLine();
-//            System.out.println("Nhập số điện thoại");
-//            String numberUpdate = sc.nextLine();
-//            System.out.println("Nhap tên lơp");
-//            String classUpdate = sc.nextLine();
-//            Student st2 = new Student(idUpdate, nameUpdate, birthdayUpdate, emailUpdate, numberUpdate, classUpdate);
-        int choice;
-        do {
-            System.out.println("Chọn thông tin muốn cập nhật \n" +
-                    "1.Cập nhat tên \n" +
-                    "2.Cập nhat ngày sinh \n" +
-                    "3.Cập nhat email \n" +
-                    "4.Cập nhat số điện thoại \n" +
-                    "5.Cập nhật lớp \n" +
-                    "6.Hoàn thành"
-            );
-            choice = Integer.parseInt(sc.nextLine());
-            switch (choice) {
-                case 1:
-                    System.out.println("Nhập tên ");
-                    String newName = sc.nextLine();
-                    if (st1 != null) {
+            int choice;
+            do {
+                System.out.println("Chọn thông tin muốn cập nhật \n" +
+                        "1.Cập nhat tên \n" +
+                        "2.Cập nhat ngày sinh \n" +
+                        "3.Cập nhat email \n" +
+                        "4.Cập nhat số điện thoại \n" +
+                        "5.Cập nhật lớp \n" +
+                        "6.Hoàn thành"
+                );
+                choice = Integer.parseInt(sc.nextLine());
+                switch (choice) {
+                    case 1:
+                        System.out.println("Nhập tên ");
+                        String newName = sc.nextLine();
                         st1.setName(newName);
                         System.out.println("Cập nhật tên thành công");
-                    }
-                    break;
-                case 2:
-                    System.out.println("Nhập ngày sinh ");
-                    LocalDate newBirthday = LocalDate.parse(sc.nextLine());
-                    if (st1 != null) {
+                        break;
+                    case 2:
+                        System.out.println("Nhập ngày sinh ");
+                        LocalDate newBirthday = LocalDate.parse(sc.nextLine());
                         st1.setBirthDay(newBirthday);
                         System.out.println("Cập nhật ngày sinh thành công");
-                    }
-                    break;
-                case 3:
-                    System.out.println("Nhập emaill ");
-                    String newEmail = sc.nextLine();
-                    if (st1 != null) {
+                        break;
+                    case 3:
+                        System.out.println("Nhập emaill ");
+                        String newEmail = sc.nextLine();
                         st1.setEmail(newEmail);
                         System.out.println("Cập nhật email thành công");
-                    }
-                    break;
-                case 4:
-                    System.out.println("Nhập số điện thoại");
-                    String newNumber = sc.nextLine();
-                    if (st1 != null) {
+                        break;
+                    case 4:
+                        System.out.println("Nhập số điện thoại");
+                        String newNumber = sc.nextLine();
                         st1.setPhone(newNumber);
                         System.out.println("Cập nhật số điện thoại thành công");
-                    }
-                    break;
-                case 5:
-                    System.out.println("Nhập tên lớp");
-                    String newClassName = sc.nextLine();
-                    if (st1 != null) {
+                        break;
+                    case 5:
+                        System.out.println("Nhập tên lớp");
+                        String newClassName = sc.nextLine();
                         st1.setNameClass(newClassName);
                         System.out.println("Cập nhật tên lop tành công");
-                    }
-                    break;
+                        break;
+                }
             }
-        }
-        while (choice != 6);
+            while (choice != 6);
 
-        iStudentService.editStudent(index, st1);
-        System.out.println("Cập nhật thành công");
+            iStudentService.editStudent(index, st1);
+            System.out.println("Cập nhật thành công");
+        }else{
+            System.out.println("id không tồn tại");
+        }
 
     }
 
     public void deleteStudent() {
-        System.out.println("Nhập id học sinh muốn xoá \n");
+        System.out.println("Nhập id học viên muốn xoá \n");
         int id = Integer.parseInt(sc.nextLine());
-        iStudentService.removeStudent(id);
-        System.out.println("Xoá thành công");
+
+        if(iStudentService.checkId(id) != null){
+            iStudentService.removeStudent(id);
+            System.out.println("Xoá thành công");
+        }else{
+            System.out.println("id không tồn tại");
+        }
+
     }
 
 
@@ -141,7 +146,9 @@ public class StudentController {
                     "2.Thêm mới học  viên \n" +
                     "3.Xoá học viên \n" +
                     "4.Chỉnh sửa học viên \n" +
-                    "5.Trở về \n");
+                    "5.Tìm kiếm  theo  tên học sinh \n" +
+                    "6.Sắp xếp học viên \n" +
+                    "7.Trở về \n");
             System.out.println("Nhập lựa chọn của bạn");
             choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
@@ -160,7 +167,27 @@ public class StudentController {
                     break;
 
                 case 5:
-                    return;
+                    searchName();
+                    break;
+                case 6:
+
+                    System.out.println("Chọn cách sắp xếp \n" +
+                            "1.Sắp xếp theo id học sinh \n" +
+                            "2.Sắp xếp theo tên học sinh");
+                    int choice2 = Integer.parseInt(sc.nextLine());
+                    switch (choice2) {
+                        case 1:
+                            iStudentService.sortStudentsAscendingById();
+                            System.out.println("Đã sắp xếp theo id học viên");
+                            break;
+                        case 2:
+                            iStudentService.sortStudentsAscendingByName();
+                            System.out.println("Đã sắp xếp theo tên học viên");
+                            break;
+                        default:
+                            return;
+                    }
+
 
             }
         } while (true);

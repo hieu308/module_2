@@ -65,10 +65,5 @@ public class ProductManagerService implements IProductManagerService {
         return iProductManagerRepository.checkName(name);
     }
 
-//    @Override
-//    public void sortProductsAscendingByPrice() {
-//        List<ProductManager> products = iProductManagerRepository.findAll();
-//        products.sort((p1, p2) -> Integer.compare(p1.getProduct_price(), p2.getProduct_price()));
-//    }
 }
 
