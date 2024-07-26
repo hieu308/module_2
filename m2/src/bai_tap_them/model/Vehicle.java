@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public abstract class  TrafficManagement {
     private String controlPlate;
-    private Object brand;
+    private Brand brand;
     private String yearOfManufacture;
     private String owner;
 
@@ -12,10 +12,11 @@ public abstract class  TrafficManagement {
 
     }
 
-    public TrafficManagement(String controlPlate,Object brand , String yearOfManufacture, String owner) {
+    public TrafficManagement(String controlPlate,Brand brand , String yearOfManufacture, String owner) {
         this.controlPlate = controlPlate;
         this.yearOfManufacture = yearOfManufacture;
         this.owner = owner;
+        this.brand = brand;
 
     }
 
@@ -23,7 +24,7 @@ public abstract class  TrafficManagement {
         return brand;
     }
 
-    public void setBrand(Object brand) {
+    public void setBrand(Brand brand) {
         this.brand = brand;
     }
 
