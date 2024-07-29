@@ -3,26 +3,73 @@ package quang_ly_code_gym.repository.student_repository;
 import quang_ly_code_gym.model.Person;
 import quang_ly_code_gym.model.Student;
 
+import java.io.*;
+import java.security.PublicKey;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 public class StudentRepository implements IStudentRepository {
+    public static final String FILE_STUDENTS = "students.csv";
+    public static final String FILE_IOBINARY = "students.dat";
     private static List<Student> list;
 
     static {
         list = new ArrayList<>();
-        Student s1 = new Student(123, "MADARA", LocalDate.parse("2000-12-02"), "madara@goole.com", "0900398234", "c01");
-        Student s2 = new Student(441, "Itachi", LocalDate.parse("2001-11-12"), "itachi@goole.com", "093374723", "c02");
-        list.add(s1);
-        list.add(s2);
+        loadData();
 
     }
+
+    public static void loadData() {
+
+//        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_STUDENTS))) {
+//            String line;
+//            while ((line = reader.readLine()) != null) {
+//                Student student = Student.fromString(line);
+//                if (student != null) {
+//                    list.add(student);
+//                }
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+        try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(FILE_IOBINARY))) {
+            list = (List<Student>) objectInputStream.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void saveData() {
+//        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_STUDENTS ))) {
+//            for (Student student : list) {
+//                writer.write(student.studentInfo());
+//                writer.newLine();
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(FILE_IOBINARY))) {
+            outputStream.writeObject(list);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @Override
     public void addStudent(Student student) {
         list.add(student);
+//        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_STUDENTS,true))) {
+//            writer.write(student.studentInfo());
+//            writer.newLine();
+//        } catch (IOException e) {
+//           e.printStackTrace();
+//        }
+
+        saveData();
     }
 
     @Override
@@ -34,7 +81,7 @@ public class StudentRepository implements IStudentRepository {
     @Override
     public void removeStudent(int id) {
         list.remove(checkId(id));
-
+        saveData();
     }
 
     public StudentRepository() {
@@ -53,11 +100,11 @@ public class StudentRepository implements IStudentRepository {
     }
 
 
-
     @Override
     public void editStudent(int index, Student student) {
 
         list.set(index, student);
+        saveData();
     }
 
     @Override
@@ -70,11 +117,13 @@ public class StudentRepository implements IStudentRepository {
                 return Integer.compare(p1.getId(), p2.getId());
             }
         });
+        saveData();
     }
 
 
     @Override
     public void sortStudentsAscendingById() {
         list.sort(Comparator.comparingInt(Person::getId));
+        saveData();
     }
 }

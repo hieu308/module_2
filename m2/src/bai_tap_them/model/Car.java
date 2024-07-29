@@ -1,6 +1,6 @@
 package bai_tap_them.model;
 
-public class Car extends TrafficManagement{
+public class Car extends Vehicle {
     private int seats;
     private String model;
 
@@ -8,7 +8,7 @@ public class Car extends TrafficManagement{
 
     }
 
-    public Car(String controlPlate, Object brand, String yearOfManufacture, String owner, int seats, String model) {
+    public Car(String controlPlate, Brand brand, String yearOfManufacture, String owner, int seats, String model) {
         super(controlPlate, brand, yearOfManufacture, owner);
         this.seats = seats;
         this.model = model;

@@ -1,4 +1,4 @@
-package bai_tap_them.repository.truck_repo;
+package bai_tap_them.repository.xe_tai_repo;
 
 import bai_tap_them.model.Car;
 import bai_tap_them.model.Trucks;
@@ -10,6 +10,6 @@ public interface ITruckRepository {
 
     void addTruck(Trucks truck);
 
-    Trucks checkCode(String code);
+    Trucks checkCodeTruck(String code);
     void deleteCar(Car car);
 }

@@ -6,16 +6,11 @@ import java.util.List;
 
 public interface IStudentRepository {
     List<Student> findAll();
-
     void addStudent(Student student);
-
-    void removeStudent(int controllPlate);
-
+    void removeStudent(int id);
     Student checkId(int id);
 
-
-
   void editStudent(int index, Student student);
-    public void sortStudentsAscendingByName();
-    public void sortStudentsAscendingById();
+   void sortStudentsAscendingByName();
+     void sortStudentsAscendingById();
 }

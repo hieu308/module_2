@@ -1,13 +1,13 @@
 package bai_tap_them.model;
 
-public class Trucks extends TrafficManagement{
+public class Trucks extends Vehicle {
     private int playLoad;
 
     public Trucks() {
 
     }
 
-    public Trucks(String controlPlate, String brand, String yearOfManufacture, String owner, int playLoad) {
+    public Trucks(String controlPlate, Brand brand, String yearOfManufacture, String owner, int playLoad) {
         super(controlPlate, brand, yearOfManufacture, owner);
         this.playLoad = playLoad;
     }

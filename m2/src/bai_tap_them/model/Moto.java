@@ -1,13 +1,14 @@
 package bai_tap_them.model;
 
-public class Moto extends TrafficManagement{
+public class Moto extends Vehicle {
     private int power;
 
     public Moto() {
     }
 
-    public Moto(String controlPlate, String brand, String yearOfManufacture, String owner) {
+    public Moto(String controlPlate, Brand brand, String yearOfManufacture, String owner, int power) {
         super(controlPlate, brand, yearOfManufacture, owner);
+        this.power = power;
     }
 
     public int getPower() {

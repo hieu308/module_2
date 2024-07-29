@@ -2,17 +2,17 @@ package bai_tap_them.model;
 
 import java.util.Objects;
 
-public abstract class  TrafficManagement {
+public abstract class Vehicle {
     private String controlPlate;
     private Brand brand;
     private String yearOfManufacture;
     private String owner;
 
-    public TrafficManagement() {
+    public Vehicle() {
 
     }
 
-    public TrafficManagement(String controlPlate,Brand brand , String yearOfManufacture, String owner) {
+    public Vehicle(String controlPlate, Brand brand , String yearOfManufacture, String owner) {
         this.controlPlate = controlPlate;
         this.yearOfManufacture = yearOfManufacture;
         this.owner = owner;
@@ -68,7 +68,7 @@ public abstract class  TrafficManagement {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TrafficManagement that = (TrafficManagement) o;
+        Vehicle that = (Vehicle) o;
         return Objects.equals(controlPlate, that.controlPlate);
     }
 

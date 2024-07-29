@@ -1,4 +1,6 @@
-package bai_tap_them.model;public class Brand {
+package bai_tap_them.model;
+
+public class Brand {
     private String id;
     private String nameBrand;
     private String country;
@@ -31,5 +33,14 @@ package bai_tap_them.model;public class Brand {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "code='" + id +
+                        ", nameBrand='" + nameBrand +
+                        ", country='" + country
+                ;
     }
 }

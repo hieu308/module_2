@@ -40,6 +40,11 @@ public class CarRepository implements ICarRepository {
         }
         return null;
     }
+
+    @Override
+    public void deleteCar(Car car) {
+        list.remove(car);
+    }
 }
 
 

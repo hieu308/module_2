@@ -1,4 +1,4 @@
-package bai_tap_them.repository.truck_repo;
+package bai_tap_them.repository.xe_tai_repo;
 
 import bai_tap_them.model.Brand;
 import bai_tap_them.model.Car;
@@ -13,8 +13,8 @@ public class TruckRepository implements ITruckRepository {
     static {
         listTrucks = new ArrayList<>();
 
-        Brand brand = new Brand("123T", "senzo", "usa");
-        Trucks truck1 = new Trucks("234T", brand, "1998", "jhon", 550);
+        Brand brand = new Brand("123f", "senzo", "usa");
+        Trucks truck1 = new Trucks("234f", brand, "1998", "jhon", 550);
         listTrucks.add(truck1);
     }
 
@@ -25,7 +25,7 @@ public class TruckRepository implements ITruckRepository {
     }
 
     @Override
-    public Trucks checkCode(String code) {
+    public Trucks checkCodeTruck(String code) {
         for (Trucks truck : listTrucks) {
             if (truck.getControlPlate().equals(code)) {
                 return truck;

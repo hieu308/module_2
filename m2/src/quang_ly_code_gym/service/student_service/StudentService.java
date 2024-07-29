@@ -30,6 +30,8 @@ public class StudentService implements IStudentService {
         return iStudentRepository.checkId(id);
     }
 
+
+
     @Override
     public void editStudent(int index, Student student) {
         iStudentRepository.editStudent(index, student);

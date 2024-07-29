@@ -1,8 +1,9 @@
 package quang_ly_code_gym.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public abstract class Person {
+public abstract class Person implements Serializable {
     private int id;
     private String name;
     private LocalDate birthDay;

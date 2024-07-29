@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class StudentController {
     IStudentService iStudentService = new StudentService();
-    Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
     List<Student> students = iStudentService.findAll();
 
     public void displayStudent() {
@@ -25,8 +25,7 @@ public class StudentController {
 
 
     public void addStudent() {
-        System.out.println("Nhập id");
-        int id = Integer.parseInt(sc.nextLine());
+        int id = validateId("Nhập id");
         while (iStudentService.checkId(id) != null) {
             System.out.println("id đã tồn tại.Mời nhập lại id");
             id = Integer.parseInt(sc.nextLine());
@@ -47,6 +46,20 @@ public class StudentController {
         System.out.println("Thêm mới học viên thành công");
     }
 
+    public static int validateId(String string) {
+        int id;
+        while (true) {
+            try {
+                System.out.println(string);
+                id = Integer.parseInt(sc.nextLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Dữ liệu không hợp lệ");
+            }
+        }
+        return id;
+    }
+
     public void searchName() {
         System.out.println("Nhập tên cần tìm");
         String name = sc.nextLine();
@@ -57,7 +70,7 @@ public class StudentController {
                 search = true;
             }
         }
-        if(!search){
+        if (!search) {
             System.out.println("Tên không tồn tại");
             displayStudentDetails();
         }
@@ -118,20 +131,21 @@ public class StudentController {
 
             iStudentService.editStudent(index, st1);
             System.out.println("Cập nhật thành công");
-        }else{
+        } else {
             System.out.println("id không tồn tại");
         }
 
     }
 
+
     public void deleteStudent() {
         System.out.println("Nhập id học viên muốn xoá \n");
         int id = Integer.parseInt(sc.nextLine());
 
-        if(iStudentService.checkId(id) != null){
+        if (iStudentService.checkId(id) != null) {
             iStudentService.removeStudent(id);
             System.out.println("Xoá thành công");
-        }else{
+        } else {
             System.out.println("id không tồn tại");
         }
 
@@ -148,7 +162,7 @@ public class StudentController {
                     "4.Chỉnh sửa học viên \n" +
                     "5.Tìm kiếm  theo  tên học sinh \n" +
                     "6.Sắp xếp học viên \n" +
-                    "7.Trở về \n");
+                    "7.Trở về");
             System.out.println("Nhập lựa chọn của bạn");
             choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
@@ -187,11 +201,12 @@ public class StudentController {
                         default:
                             return;
                     }
-
-
+                case 7:
+                    return;
             }
         } while (true);
     }
+
 
 
 }

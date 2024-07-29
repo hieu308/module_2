@@ -14,8 +14,9 @@ public interface IStudentService {
     Student checkId(int id);
 
 
-
     void editStudent(int index, Student student);
-    public void sortStudentsAscendingByName();
-    public void sortStudentsAscendingById();
+
+    void sortStudentsAscendingByName();
+
+    void sortStudentsAscendingById();
 }
