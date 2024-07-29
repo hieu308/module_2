@@ -12,7 +12,7 @@ public interface IStudentService {
     void removeStudent(int index);
 
     Student checkId(int id);
-
+    public void saveData();
 
     void editStudent(int index, Student student);
 

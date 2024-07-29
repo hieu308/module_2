@@ -71,4 +71,5 @@ public abstract class Person implements Serializable {
                 ", email : '" + email + '\'' +
                 ", phone : '" + phone + '\'' ;
     }
+
 }

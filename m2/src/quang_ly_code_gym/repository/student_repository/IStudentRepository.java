@@ -9,7 +9,7 @@ public interface IStudentRepository {
     void addStudent(Student student);
     void removeStudent(int id);
     Student checkId(int id);
-
+     void saveData();
   void editStudent(int index, Student student);
    void sortStudentsAscendingByName();
      void sortStudentsAscendingById();

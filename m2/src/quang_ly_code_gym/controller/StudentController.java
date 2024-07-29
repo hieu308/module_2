@@ -162,7 +162,8 @@ public class StudentController {
                     "4.Chỉnh sửa học viên \n" +
                     "5.Tìm kiếm  theo  tên học sinh \n" +
                     "6.Sắp xếp học viên \n" +
-                    "7.Trở về");
+                    "7.Lưu \n" +
+                    "8.Trở về");
             System.out.println("Nhập lựa chọn của bạn");
             choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
@@ -202,11 +203,13 @@ public class StudentController {
                             return;
                     }
                 case 7:
+                    iStudentService.saveData();
+                    break;
+                case 8:
                     return;
             }
         } while (true);
     }
-
 
 
 }

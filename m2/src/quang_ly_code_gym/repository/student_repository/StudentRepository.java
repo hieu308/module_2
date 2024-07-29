@@ -41,7 +41,7 @@ public class StudentRepository implements IStudentRepository {
         }
     }
 
-
+    @Override
     public void saveData() {
 //        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_STUDENTS ))) {
 //            for (Student student : list) {
@@ -68,8 +68,6 @@ public class StudentRepository implements IStudentRepository {
 //        } catch (IOException e) {
 //           e.printStackTrace();
 //        }
-
-        saveData();
     }
 
     @Override
@@ -81,7 +79,7 @@ public class StudentRepository implements IStudentRepository {
     @Override
     public void removeStudent(int id) {
         list.remove(checkId(id));
-        saveData();
+
     }
 
     public StudentRepository() {
@@ -104,7 +102,7 @@ public class StudentRepository implements IStudentRepository {
     public void editStudent(int index, Student student) {
 
         list.set(index, student);
-        saveData();
+
     }
 
     @Override
@@ -117,13 +115,13 @@ public class StudentRepository implements IStudentRepository {
                 return Integer.compare(p1.getId(), p2.getId());
             }
         });
-        saveData();
+
     }
 
 
     @Override
     public void sortStudentsAscendingById() {
         list.sort(Comparator.comparingInt(Person::getId));
-        saveData();
+
     }
 }

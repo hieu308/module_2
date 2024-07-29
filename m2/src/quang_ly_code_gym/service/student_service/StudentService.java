@@ -31,6 +31,10 @@ public class StudentService implements IStudentService {
     }
 
 
+    @Override
+    public void saveData() {
+        iStudentRepository.saveData();
+    }
 
     @Override
     public void editStudent(int index, Student student) {
